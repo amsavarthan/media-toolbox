@@ -1,0 +1,23 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppThemeWhatsApp" parent="AppTheme.Base" />
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryWhatsApp</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkWhatsApp</item>
+        <item name="colorAccent">@color/colorAccentWhatsApp</item>
+    </style>
+
+    <style name="saveImageView">
+        <item name="android:padding">3dp</item>
+        <item name="android:background">@drawable/image_border</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+</resources>

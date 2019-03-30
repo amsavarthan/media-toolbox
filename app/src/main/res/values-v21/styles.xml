@@ -1,0 +1,9 @@
+<resources>
+
+    <!-- v21 application theme. -->
+    <style name="AppTheme" parent="AppTheme.Base">
+        <!-- Customize your theme here. -->
+        <item name="android:windowContentTransitions">true</item>
+    </style>
+
+</resources>

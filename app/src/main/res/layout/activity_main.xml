@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/top"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:focusable="true"
+            app:cardUseCompatPadding="true"
+            android:foreground="?selectableItemBackground"
+            android:layout_marginTop="10dp"
+            android:onClick="openInstagram"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="4dp"
+            app:cardMaxElevation="6dp"
+            android:background="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="220dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@mipmap/instagram"
+                    android:scaleType="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:background="#50000000"
+                    android:layout_gravity="bottom"
+                    android:padding="20dp"
+                    android:textColor="#FFF"
+                    android:textSize="18sp"
+                    android:text="Instagram Posts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </FrameLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:clickable="true"
+            android:focusable="true"
+            app:cardUseCompatPadding="true"
+            android:foreground="?selectableItemBackground"
+            android:layout_marginTop="10dp"
+            android:onClick="openWhatsapp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="4dp"
+            app:cardMaxElevation="6dp"
+            android:background="@color/colorPrimaryWhatsApp"
+            android:layout_width="match_parent"
+            android:layout_height="220dp">
+
+            <FrameLayout
+                android:background="#26D367"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@mipmap/whatsapp"
+                    android:scaleType="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:background="#50000000"
+                    android:layout_gravity="bottom"
+                    android:padding="20dp"
+                    android:textColor="#FFF"
+                    android:textSize="18sp"
+                    android:text="WhatsApp Status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </FrameLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:visibility="gone"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardUseCompatPadding="true"
+            android:foreground="?selectableItemBackground"
+            android:layout_marginTop="10dp"
+            android:onClick="openInstagramDP"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="4dp"
+            app:cardMaxElevation="6dp"
+            android:background="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="220dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:src="@mipmap/instagram"
+                    android:scaleType="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:background="#50000000"
+                    android:layout_gravity="bottom"
+                    android:padding="20dp"
+                    android:textColor="#FFF"
+                    android:textSize="18sp"
+                    android:text="HD DP Viewer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </FrameLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+
+
+</ScrollView>

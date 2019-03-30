@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Instagram.MainActivity">
+
+  <FrameLayout
+      android:layout_alignParentTop="true"
+      android:layout_above="@+id/bottom"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+     <android.support.v7.widget.RecyclerView
+         android:id="@+id/recyclerview"
+         app:stackFromEnd="true"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"/>
+
+     <LinearLayout
+         android:visibility="gone"
+         android:id="@+id/default_view"
+         android:orientation="vertical"
+         android:gravity="center"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+
+        <ImageView
+            android:src="@drawable/ic_recents_24dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:textSize="22sp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:text="All your recent downloads will appear here"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+     </LinearLayout>
+
+  </FrameLayout>
+
+   <RelativeLayout
+       android:id="@+id/bottom"
+       android:layout_alignParentBottom="true"
+       android:layout_width="match_parent"
+       android:layout_height="54dp"
+       >
+
+      <EditText
+          android:id="@+id/url"
+          android:maxLength="40"
+          android:layout_width="match_parent"
+          android:layout_height="54dp"
+          android:layout_alignParentBottom="true"
+          android:layout_alignParentLeft="true"
+          android:layout_toLeftOf="@+id/proceed"
+          android:layout_toStartOf="@+id/proceed"
+          android:background="@drawable/button_grey"
+          android:hint="Enter instagram post url"
+          android:padding="15dp"
+          android:singleLine="true"
+          android:textSize="16sp" />
+
+      <ImageView
+          android:id="@+id/proceed"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true"
+          android:layout_alignParentEnd="true"
+          android:layout_alignParentRight="true"
+          android:background="@color/colorAccent"
+          android:clickable="true"
+          android:focusable="true"
+          android:padding="15dp"
+          android:src="@drawable/ic_arrow_forward_black_24dp" />
+
+   </RelativeLayout>
+
+</RelativeLayout>

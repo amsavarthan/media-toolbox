@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#458eff</color>
+    <color name="colorPrimaryDark">#488eff</color>
+    <color name="colorAccent">#458eff</color>
+
+    <color name="colorPrimaryWhatsApp">#4caf50</color>
+    <color name="colorPrimaryDarkWhatsApp">#388E3C</color>
+    <color name="colorPrimaryTranslucent">#4caf50</color>
+    <color name="colorPrimary100">#C8E6C9</color>
+
+    <color name="colorAccentWhatsApp">#8DC34A</color>
+    <color name="blue">#38479c</color>
+    <color name="savedSelectedItemColor">#837f92ff</color>
+    <color name="white">#FFF</color>
+    <color name="black">#212121</color>
+    <color name="green">#26D367</color>
+    <color name="grey">#f7f7f7</color>
+    <color name="blue_light">#BBDEFB</color>
+
+</resources>
