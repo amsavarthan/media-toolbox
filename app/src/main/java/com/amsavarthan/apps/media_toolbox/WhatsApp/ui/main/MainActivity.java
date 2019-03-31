@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -22,6 +23,8 @@ import com.amsavarthan.apps.media_toolbox.WhatsApp.ui.main.recentscreen.RecentPi
 import com.amsavarthan.apps.media_toolbox.WhatsApp.ui.main.saved.SavedPicsFragment;
 import com.amsavarthan.apps.media_toolbox.WhatsApp.util.DialogFactory;
 import com.amsavarthan.apps.media_toolbox.WhatsApp.util.PermissionUtil;
+
+import java.io.File;
 
 import javax.inject.Inject;
 
@@ -78,11 +81,13 @@ public class MainActivity extends BaseActivity implements MainView{
             e.printStackTrace();
         }
 
+        File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "/MediaDownloader");
+        if (!f.exists()) {
+            f.mkdirs();
+        }
 
         // Attach presenter
         presenter.attachView(this);
-
-
         presenter.setLoadingAnimation(true);
 
         // Load images
@@ -91,10 +96,10 @@ public class MainActivity extends BaseActivity implements MainView{
         }else {
             presenter.loadRecentAndSavedPics();
         }
+
     }
 
     private void requestPermission() {
-        // TODO: 5/3/17 check permission rational
         String[] permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         PermissionUtil.requestPermissions(this, permissions, PERMISSION_REQUEST_CODE_EXT_STORAGE);
     }
@@ -127,6 +132,10 @@ public class MainActivity extends BaseActivity implements MainView{
         if (requestCode == PERMISSION_REQUEST_CODE_EXT_STORAGE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Permission granted
+                File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "/MediaDownloader");
+                if (!f.exists()) {
+                    f.mkdirs();
+                }
                 presenter.loadRecentAndSavedPics();
             }else{
                 // Permission denied, show rational
