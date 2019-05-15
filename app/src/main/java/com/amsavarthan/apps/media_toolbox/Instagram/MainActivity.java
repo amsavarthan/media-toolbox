@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.AsyncTask;
-import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -23,6 +23,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.amsavarthan.apps.media_toolbox.Utils.HttpHandler;
 import com.amsavarthan.apps.media_toolbox.R;
 
@@ -31,7 +33,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -109,20 +110,43 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         mRecyclerView.setAdapter(mAdapter);
 
+        getDatafromDatabase();
+
+        String intentData=getIntent().getStringExtra("url");
+        if(intentData!=null){
+            full_url=intentData;
+
+            int index=full_url.lastIndexOf("/");
+            if(index>0){
+                full_url=full_url.substring(0,index+1);
+            }
+
+            URL=full_url+"?__a=1";
+            if(URL.contains("://www.instagram.com/")){
+                new GetData().execute();
+            }else {
+                Toast.makeText(MainActivity.this, "Invalid URL", Toast.LENGTH_SHORT).show();
+            }
+        }
+
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 full_url=url_text.getText().toString();
+
+                int index=full_url.lastIndexOf("/");
+                if(index>0){
+                    full_url=full_url.substring(0,index+1);
+                }
+
                 URL=full_url+"?__a=1";
-                if(!URL.contains("https://www.instagram.com/")){
-                    Toast.makeText(MainActivity.this, "Invalid URL", Toast.LENGTH_SHORT).show();
-                }else {
+                if(URL.contains("://www.instagram.com/")){
                     new GetData().execute();
+                }else {
+                    Toast.makeText(MainActivity.this, "Invalid URL", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-        getDatafromDatabase();
 
     }
 
@@ -133,13 +157,13 @@ public class MainActivity extends AppCompatActivity {
             findViewById(R.id.default_view).setVisibility(View.INVISIBLE);
             findViewById(R.id.default_view).setAlpha(0.0f);
             findViewById(R.id.default_view).animate().alpha(1.0f).setDuration(300)
-            .setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    super.onAnimationEnd(animation);
-                    findViewById(R.id.default_view).setVisibility(View.VISIBLE);
-                }
-            });
+                    .setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            super.onAnimationEnd(animation);
+                            findViewById(R.id.default_view).setVisibility(View.VISIBLE);
+                        }
+                    });
 
 
         }else {
@@ -179,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.menu_main_insta,menu);
+        inflater.inflate(R.menu.help_menu,menu);
         return true;
     }
 
@@ -188,9 +212,46 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.action_help:
                 startActivity(new Intent(this,HelpActivity.class));
+                break;
+            case R.id.action_clear:
+                clearAllRecents();
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void clearAllRecents() {
+
+
+        new MaterialDialog.Builder(this)
+                .title("Clear Recents")
+                .icon(getResources().getDrawable(R.drawable.ic_recents_24dp))
+                .content("Are you sure do you want to clear all?")
+                .cancelable(false)
+                .positiveColor(getResources().getColor(R.color.black))
+                .neutralColor(getResources().getColor(R.color.black))
+                .positiveText("Yes")
+                .neutralText("No")
+                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        dialog.dismiss();
+                        database.deleteAll();
+                        post.clear();
+                        mAdapter.notifyDataSetChanged();
+                        getDatafromDatabase();
+                        Toast.makeText(MainActivity.this, "Recents Cleared", Toast.LENGTH_SHORT).show();
+
+                    }
+                })
+                .onNeutral(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
+
     }
 
     private class GetData extends AsyncTask<Void, Void, Void> {
@@ -269,9 +330,15 @@ public class MainActivity extends AppCompatActivity {
 
                             String edge_video_url="",edge_thumbnail="multiple";
                             if(edge_is_video.equals("true")){
-                               edge_video_url=node.getString("video_url");
+                                edge_video_url=node.getString("video_url");
                             }
 
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    findViewById(R.id.default_view).setVisibility(View.GONE);
+                                }
+                            });
                             Post_Model post_model = new Post_Model("yes",profile_pic_url,edge_video_url, edge_thumbnail, caption, username, full_name, edge_is_video, edge_display_url, URL, String.valueOf(System.currentTimeMillis()));
                             post.add(0,post_model);
                             database.insertContact(username,full_name,edge_display_url,edge_is_video,URL,profile_pic_url,edge_video_url,String.valueOf(System.currentTimeMillis()),edge_thumbnail,caption);
@@ -325,7 +392,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         Toast.makeText(getApplicationContext(),
-                                "Couldn't get posts, Please check your internet connection!",
+                                "Couldn't get post, maybe the account is private.",
                                 Toast.LENGTH_LONG)
                                 .show();
                     }

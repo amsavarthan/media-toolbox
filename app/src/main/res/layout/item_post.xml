@@ -20,7 +20,6 @@
             android:layout_alignParentLeft="true"
             android:layout_toStartOf="@+id/owner_pic">
 
-
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
@@ -131,6 +130,7 @@
                    android:layout_gravity="bottom"
                    android:id="@+id/save"
                    android:text="download"
+                   android:textColor="@color/colorAccent"
                    style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"/>

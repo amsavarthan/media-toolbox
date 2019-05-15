@@ -17,14 +17,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Instagram.DP_View"
+
+        <activity
+            android:name=".Youtube.HelpActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light" />
+
+        <activity android:name=".Youtube.DownloadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/DownloaderAppTheme"/>
+
+        <activity
+            android:name=".Youtube.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light" />
+
+        <activity
+            android:name=".Instagram.DP_View"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light" />
+
         <activity
             android:name=".Instagram.HelpActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light" />
+
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
@@ -34,28 +54,45 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
         </activity>
+
         <activity
             android:name=".IntroActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <activity
             android:name=".IntroAgainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <activity
+            android:launchMode="singleTask"
             android:name=".Instagram.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light" />
+
         <activity
             android:name=".WhatsApp.ui.main.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeWhatsApp" />
+
         <activity
             android:name=".WhatsApp.ui.imageslider.ImageSliderActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeWhatsApp" />
+
         <activity
             android:name=".About"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
     </application>
 
 </manifest>

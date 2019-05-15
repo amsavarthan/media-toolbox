@@ -69,14 +69,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                     setupChannels(notificationManager);
                 }
                 NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-                        context, "media_downloader");
+                        context, "com.amsavarthan.media_toolbox");
 
                 android.app.Notification notification;
                 notification = mBuilder
                         .setAutoCancel(true)
-                        .setContentTitle("Download success")
+                        .setContentTitle("Instagram post")
                         .setSmallIcon(R.drawable.ic_file_download_24dp)
-                        .setContentText("Saved in /Downloads/MediaDownloader/Instagram Posts/...")
+                        .setContentText("Download successful")
                         .build();
 
                 notificationManager.notify(0, notification);
@@ -100,17 +100,24 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                     @Override
                     public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
 
+                        String fileName,extension;
+                        if(holder.choice.equals("Image")) {
+                            fileName="IMG_" + System.currentTimeMillis();
+                            extension=".jpg";
+                        }else{
+                            fileName="VDO_" + System.currentTimeMillis();
+                            extension=".mp4";
+                        }
+
+                        Toast.makeText(context, "Download started...", Toast.LENGTH_SHORT).show();
                         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(ImageURI));
                         request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE);
                         request.setAllowedOverRoaming(true);
-                        request.setTitle("Media Toolbox");
+                        request.setTitle(fileName);
                         request.setDescription("Downloading "+holder.choice+"...");
                         request.setVisibleInDownloadsUi(true);
-                        if(holder.choice.equals("Image")) {
-                            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/MediaDownloader/Instagram Posts/IMG_" + System.currentTimeMillis() + ".jpg");
-                        }else{
-                            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, "/MediaDownloader/Instagram Posts/VDO_" + System.currentTimeMillis() + ".mp4");
-                        }
+                        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/MediaDownloader/Instagram Posts/" + fileName+extension);
+
                         refid = downloadManager.enqueue(request);
                         list.add(refid);
 
@@ -336,12 +343,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         }
     }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void setupChannels(NotificationManager notificationManager) {
         CharSequence adminChannelName = "Downloads";
         String adminChannelDescription = "Used to show the progress of downloads";
         NotificationChannel adminChannel;
-        adminChannel = new NotificationChannel("instasaver", adminChannelName, NotificationManager.IMPORTANCE_DEFAULT);
+        adminChannel = new NotificationChannel("com.amsavarthan.media_toolbox", adminChannelName, NotificationManager.IMPORTANCE_DEFAULT);
         adminChannel.setDescription(adminChannelDescription);
         adminChannel.enableVibration(true);
         if (notificationManager != null) {

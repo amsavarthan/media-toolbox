@@ -14,7 +14,7 @@
 
         <TextView
             android:padding="10dp"
-            android:text="Where can I find the link of a post?"
+            android:text="How to download a video from youtube?"
             android:textSize="28sp"
             android:layout_marginBottom="10dp"
             android:textColor="@color/colorAccent"
@@ -25,20 +25,20 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             style="@style/Base.TextAppearance.AppCompat.Title"
-            android:text="In the newer version of Instagram"
+            android:text="In the all versions of Youtube"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp" style="@style/Base.TextAppearance.AppCompat.Subhead"
-            android:text="Click on the arrow near comment's icon to get the following bottom sheet"
+            android:text="Click on the share icon in video screen or click three dot button and Share from following popup menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <ImageView
+        <com.amsavarthan.apps.media_toolbox.View.HifyImageView
             android:layout_marginTop="10dp"
-            android:src="@mipmap/new_img1"
+            android:src="@mipmap/youtube_help"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -47,29 +47,21 @@
             android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
             style="@style/Base.TextAppearance.AppCompat.Subhead"
-            android:text="Click on the Copy link button to get the URL of the post and paste it in the Textbox in Media Toolbox"
+            android:text="Scroll up and click on Copy Link button (If you click on copy link you have to open the manually and paste it) or just find Media Toolbox from it"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <ImageView
+        <com.amsavarthan.apps.media_toolbox.View.HifyImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:src="@mipmap/new_img2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            style="@style/Base.TextAppearance.AppCompat.Title"
-            android:text="In the older version of Instagram"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:src="@mipmap/youtube_help2" />
 
         <TextView
             android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp" style="@style/Base.TextAppearance.AppCompat.Subhead"
-            android:text="Click on the three dots near the account name and click on copy url of the post from the menu"
+            android:text="That's it, Now your video is ready to be downloaded"
             android:layout_width="match_parent"
             android:layout_marginBottom="30dp"
             android:layout_height="wrap_content" />

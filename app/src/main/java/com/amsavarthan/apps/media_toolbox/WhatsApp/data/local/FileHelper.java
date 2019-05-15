@@ -34,7 +34,7 @@ public class FileHelper {
     }
 
     private String getStatusSaverDirPath() {
-        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)+ STATUS_SAVER_LOCAL_DIR_URI;
+        return Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)+ STATUS_SAVER_LOCAL_DIR_URI;
     }
 
     private String getWhatsappStatusDirPath() {

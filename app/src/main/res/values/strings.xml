@@ -4,6 +4,8 @@
 
     <string name="sub_title_whatsapp">For Whatsapp</string>
     <string name="sub_title_insta">For Instagram</string>
+    <string name="sub_title_youtube">For Youtube</string>
+
     <string name="dialog_action_ok">OK</string>
     <string name="dialog_error_title">Error</string>
     <string name="no_images_saved">No status saved</string>

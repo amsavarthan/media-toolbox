@@ -13,10 +13,6 @@ public class MainPresenter extends BasePresenter<MainView> {
     public MainPresenter() {
     }
 
-    void loadWelcomeMessage() {
-        getMvpView().displayWelcomeMessage("Hello world!");
-    }
-
     void setLoadingAnimation(boolean status) {
         getMvpView().displayLoadingAnimation(status);
     }

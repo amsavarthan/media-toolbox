@@ -15,7 +15,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.amsavarthan.apps.media_toolbox.Instagram.DP_View;
 import com.amsavarthan.apps.media_toolbox.WhatsApp.util.DialogFactory;
@@ -48,31 +50,64 @@ public class MainActivity extends AppCompatActivity {
             finish();
             return;
         }
+        Intent intent=getIntent();
+        String action=intent.getAction();
+        String type=intent.getType();
 
-        if(sharedPref.getBoolean("showDialog",true)){
+        if(Intent.ACTION_SEND.equals(action) && type!=null){
+            if(type.equals("text/plain")){
+                String intentData=intent.getStringExtra(Intent.EXTRA_TEXT);
+                if(intentData.contains("://youtu.be/")||intentData.contains("youtube.com/watch?v=")){
 
-            new AlertDialog.Builder(this)
-                    .setTitle("Important")
-                    .setMessage("All the images and videos you download or save are located in you Pictures folder.")
-                    .setCancelable(false)
-                    .setPositiveButton("DISMISS", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                            requestPermission();
-                        }
-                    })
-                    .setNegativeButton("Never show again", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                           sharedPref.edit().putBoolean("showDialog",false).apply();
-                           dialog.dismiss();
-                           requestPermission();
-                        }
-                    })
-                    .show();
+                    startActivity(new Intent(this, com.amsavarthan.apps.media_toolbox.Youtube.MainActivity.class)
+                    .putExtra("url",intentData));
+                    finish();
+
+                }else if(intentData.contains("://www.instagram.com/")){
+
+                    startActivity(new Intent(this, com.amsavarthan.apps.media_toolbox.Instagram.MainActivity.class)
+                    .putExtra("url",intentData));
+                    finish();
+
+                }
+            }
+        }else{
+
+            if(sharedPref.getBoolean("showDialog",true)){
+
+                new MaterialDialog.Builder(this)
+                        .title("Important")
+                        .icon(getResources().getDrawable(R.drawable.info))
+                        .content("All the media files you downloaded are located in your Downloads folder.")
+                        .cancelable(false)
+                        .positiveColor(getResources().getColor(R.color.black))
+                        .neutralColor(getResources().getColor(R.color.black))
+                        .positiveText("Dismiss")
+                        .neutralText("Never show again")
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                dialog.dismiss();
+                                requestPermission();
+                            }
+                        })
+                        .onNeutral(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                sharedPref.edit().putBoolean("showDialog",false).apply();
+                                dialog.dismiss();
+                                requestPermission();
+                            }
+                        })
+                        .show();
+
+            }
+
 
         }
+
+
+
     }
 
     private static final int PERMISSION_REQUEST_CODE_EXT_STORAGE = 10;
@@ -86,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == PERMISSION_REQUEST_CODE_EXT_STORAGE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Permission granted
-                File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "/MediaDownloader");
+                File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "/MediaDownloader");
                 if (!f.exists()) {
                     f.mkdirs();
                 }
@@ -142,5 +177,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void openInstagramDP(View view) {
         startActivity(new Intent(this, DP_View.class));
+    }
+
+    public void openYoutube(View view) {
+        startActivity(new Intent(this, com.amsavarthan.apps.media_toolbox.Youtube.MainActivity.class));
     }
 }

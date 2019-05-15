@@ -81,7 +81,7 @@ public class MainActivity extends BaseActivity implements MainView{
             e.printStackTrace();
         }
 
-        File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "/MediaDownloader");
+        File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "/MediaDownloader");
         if (!f.exists()) {
             f.mkdirs();
         }
@@ -132,7 +132,7 @@ public class MainActivity extends BaseActivity implements MainView{
         if (requestCode == PERMISSION_REQUEST_CODE_EXT_STORAGE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Permission granted
-                File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "/MediaDownloader");
+                File f = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "/MediaDownloader");
                 if (!f.exists()) {
                     f.mkdirs();
                 }

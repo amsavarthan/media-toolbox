@@ -20,4 +20,10 @@
         <item name="android:scaleType">fitCenter</item>
     </style>
 
+    <style name="DownloaderAppTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowMinWidthMajor">55%</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+    </style>
+
 </resources>

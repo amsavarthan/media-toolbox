@@ -5,8 +5,8 @@ android {
         applicationId "com.amsavarthan.apps.media_toolbox"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.2.0"
+        versionCode 3
+        versionName "1.4.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -58,7 +58,10 @@ dependencies {
     implementation 'com.github.matthiasrobbers:shortbread:1.0.2'
     annotationProcessor 'com.github.matthiasrobbers:shortbread-compiler:1.0.2'
     implementation 'org.jetbrains:annotations-java5:15.0'
-
+    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:master-SNAPSHOT'
+    implementation 'org.aspectj:aspectjrt:1.8.13'
+    implementation 'com.googlecode.mp4parser:isoparser:1.1.22'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
 repositories {
     mavenCentral()

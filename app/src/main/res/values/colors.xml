@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#458eff</color>
-    <color name="colorPrimaryDark">#488eff</color>
-    <color name="colorAccent">#458eff</color>
+    <color name="colorPrimary">#F44336</color>
+    <color name="colorPrimaryDark">#E53935</color>
+    <color name="colorAccent">#F44336</color>
 
     <color name="colorPrimaryWhatsApp">#4caf50</color>
     <color name="colorPrimaryDarkWhatsApp">#388E3C</color>

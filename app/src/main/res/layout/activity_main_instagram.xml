@@ -52,7 +52,6 @@
 
       <EditText
           android:id="@+id/url"
-          android:maxLength="40"
           android:layout_width="match_parent"
           android:layout_height="54dp"
           android:layout_alignParentBottom="true"

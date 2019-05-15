@@ -30,7 +30,7 @@ public class HelpActivity extends AppCompatActivity {
                 .build()
         );
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_help);
+        setContentView(R.layout.activity_help_insta);
 
         try {
             getSupportActionBar().setTitle("Help");

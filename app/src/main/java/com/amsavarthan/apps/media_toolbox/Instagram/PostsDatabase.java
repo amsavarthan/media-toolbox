@@ -97,4 +97,11 @@ public class PostsDatabase extends SQLiteOpenHelper {
                 new String[] { Integer.toString(id) });
     }
 
+    public void deleteAll () {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("post",
+                null,
+                null);
+    }
+
 }
