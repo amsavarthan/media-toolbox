@@ -15,6 +15,14 @@
 * Instagram Posts Downloader
 * Youtube Video Downloader
 
+## Youtube Videos
+
+Downloading videos from YouTube is disable by default. To enable it follow the procedure below:
+1. Open the app
+2. Click on the three dot menu in the Home Screen
+3. Click About
+4. Click 5 times on our app logo to unlock YouTube
+
 ## Developer
 
 This whole project is maintained only by **Amsavarthan Lv (me)**.<br>
