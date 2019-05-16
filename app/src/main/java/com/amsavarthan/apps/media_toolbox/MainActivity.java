@@ -30,6 +30,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends AppCompatActivity {
 
+    private int num;
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -54,14 +56,31 @@ public class MainActivity extends AppCompatActivity {
         String action=intent.getAction();
         String type=intent.getType();
 
+        SharedPreferences sharedPreferences=getSharedPreferences("unlock",MODE_PRIVATE);
+        num=sharedPreferences.getInt("num",5);
+
+        if(num==0){
+            findViewById(R.id.card2).setVisibility(View.VISIBLE);
+        }else{
+            findViewById(R.id.card2).setVisibility(View.GONE);
+        }
+
         if(Intent.ACTION_SEND.equals(action) && type!=null){
             if(type.equals("text/plain")){
                 String intentData=intent.getStringExtra(Intent.EXTRA_TEXT);
                 if(intentData.contains("://youtu.be/")||intentData.contains("youtube.com/watch?v=")){
 
-                    startActivity(new Intent(this, com.amsavarthan.apps.media_toolbox.Youtube.MainActivity.class)
-                    .putExtra("url",intentData));
-                    finish();
+                    if(num==0) {
+
+                        startActivity(new Intent(this, com.amsavarthan.apps.media_toolbox.Youtube.MainActivity.class)
+                                .putExtra("url", intentData));
+                        finish();
+
+                    }else{
+
+                        Toast.makeText(this, "You can't download Youtube videos now, You may have to check our github repo for details from about screen", Toast.LENGTH_LONG).show();
+
+                    }
 
                 }else if(intentData.contains("://www.instagram.com/")){
 

@@ -2,11 +2,13 @@ package com.amsavarthan.apps.media_toolbox;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -69,4 +71,22 @@ public class About extends AppCompatActivity {
 
     }
 
+    public void unlockYoutube(View view) {
+
+        SharedPreferences sharedPreferences=getSharedPreferences("unlock",MODE_PRIVATE);
+        int num=sharedPreferences.getInt("num",5);
+
+        if(num==0){
+
+            Toast.makeText(this, "It's unlocked", Toast.LENGTH_SHORT).show();
+
+        }else if(num>0){
+
+            Toast.makeText(this, "You are "+num+" steps away..", Toast.LENGTH_SHORT).show();
+            sharedPreferences.edit().putInt("num",--num).apply();
+
+        }
+
+
+    }
 }

@@ -9,6 +9,8 @@
     tools:context=".About">
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img"
+        android:onClick="unlockYoutube"
         android:src="@mipmap/ic_launcher_round"
         android:padding="10dp"
         android:layout_width="150dp"
