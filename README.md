@@ -7,7 +7,9 @@
 [![Hify](https://forthebadge.com/images/badges/built-for-android.svg)](https://lvamsavarthan.github.io/lvstore/hify.html)
 <br>
 
-### Download the latest build by clicking [here](https://play.google.com/store/apps/details?id=com.amsavarthan.apps.media_toolbox)
+<p align="left">
+<a href="https://play.google.com/store/apps/details?id=com.amsavarthan.apps.media_toolbox"><img src="https://cdn.rawgit.com/steverichey/google-play-badge-svg/master/img/en_get.svg"></a>
+</p>
 
 ## Available Features
 
