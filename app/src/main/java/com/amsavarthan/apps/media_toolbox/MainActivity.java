@@ -38,6 +38,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        String action=intent.getAction();
+        String type=intent.getType();
+        if(Intent.ACTION_SEND.equals(action) && type!=null){
+            if(type.equals("text/plain")){
+                String intentData=intent.getStringExtra(Intent.EXTRA_TEXT);
+                if(intentData.contains("://youtu.be/")||intentData.contains("youtube.com/watch?v=")){
+
+                    if(num==0) {
+
+                        startActivity(new Intent(this, com.amsavarthan.apps.media_toolbox.Youtube.MainActivity.class)
+                                .putExtra("url", intentData));
+                        finish();
+
+                    }else{
+
+                        Toast.makeText(this, "You can't download Youtube videos now, You may have to check our github repo for details from about screen", Toast.LENGTH_LONG).show();
+
+                    }
+
+                }else if(intentData.contains("://www.instagram.com/")){
+
+                    startActivity(new Intent(this, com.amsavarthan.apps.media_toolbox.Instagram.MainActivity.class)
+                            .putExtra("url",intentData));
+                    finish();
+
+                }
+            }
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()

@@ -58,6 +58,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        String intentData=intent.getStringExtra("url");
+        if(intentData!=null){
+            youtubeLink=intentData;
+            if(youtubeLink.contains("://youtu.be/")||youtubeLink.contains("youtube.com/watch?v=")){
+                getYoutubeDownloadUrl(youtubeLink);
+            }else {
+                Toast.makeText(MainActivity.this, "Invalid URL", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+    }
+
+    @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return super.onSupportNavigateUp();

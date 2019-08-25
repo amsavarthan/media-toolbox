@@ -60,7 +60,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             long referenceId = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
             list.remove(referenceId);
             if (list.isEmpty()) {
-                NotificationManager notificationManager = (NotificationManager) ctxt.getSystemService(Context.NOTIFICATION_SERVICE);
+               /* NotificationManager notificationManager = (NotificationManager) ctxt.getSystemService(Context.NOTIFICATION_SERVICE);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     setupChannels(notificationManager);
@@ -76,8 +76,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                         .setContentText("Download successful")
                         .build();
 
-                notificationManager.notify(0, notification);
-                Toast.makeText(ctxt, "Downloaded successfully", Toast.LENGTH_LONG).show();
+                notificationManager.notify(0, notification);*/
+                //Toast.makeText(ctxt, "Downloaded successfully", Toast.LENGTH_LONG).show();
             }
         }
 
@@ -234,7 +234,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         request.setTitle(fileName);
         request.setDescription("Downloading "+type+"...");
         request.setVisibleInDownloadsUi(true);
-        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/MediaDownloader/Youtube/Thumbnails/"+fileName + ".jpg");
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/MediaDownloader/Youtube Downloads/"+fileName + ".jpg");
         refid = downloadManager.enqueue(request);
         list.add(refid);
 

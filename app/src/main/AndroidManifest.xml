@@ -31,7 +31,6 @@
 
         <activity
             android:name=".Youtube.MainActivity"
-            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeYoutube" />
 
@@ -47,6 +46,7 @@
 
         <activity
             android:name=".MainActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
@@ -72,7 +72,6 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <activity
-            android:launchMode="singleTask"
             android:name=".Instagram.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light" />

@@ -76,6 +76,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        String intentData=intent.getStringExtra("url");
+        if(intentData!=null){
+            full_url=intentData;
+
+            int index=full_url.lastIndexOf("/");
+            if(index>0){
+                full_url=full_url.substring(0,index+1);
+            }
+
+            URL=full_url+"?__a=1";
+            if(URL.contains("://www.instagram.com/")){
+                new GetData().execute();
+            }else {
+                Toast.makeText(MainActivity.this, "Invalid URL", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/bold.ttf")

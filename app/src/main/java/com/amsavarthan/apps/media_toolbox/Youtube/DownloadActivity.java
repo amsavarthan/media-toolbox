@@ -158,12 +158,14 @@ public class DownloadActivity extends AppCompatActivity {
         Uri uri = Uri.parse(youtubeDlUrl);
         DownloadManager.Request request = new DownloadManager.Request(uri);
         request.setTitle(downloadTitle);
-        if (hide) {
-            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_HIDDEN);
-            request.setVisibleInDownloadsUi(false);
+        /*if (hide) {
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
+            request.setVisibleInDownloadsUi(true);
         } else
-            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/MediaDownloader/Youtube/Videos/"+fileName);
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);*/
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
+        request.setVisibleInDownloadsUi(true);
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "/MediaDownloader/Youtube Downloads/"+fileName);
 
         DownloadManager manager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
         return manager.enqueue(request);
