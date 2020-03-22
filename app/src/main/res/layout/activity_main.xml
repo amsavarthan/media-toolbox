@@ -1,136 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:scrollbars="none"
+    android:overScrollMode="never"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#fff"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <LinearLayout
-        android:id="@+id/top"
+        android:onClick="unlockYoutube"
+        android:clickable="true"
+        android:focusable="true"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.CardView
-            android:clickable="true"
-            android:focusable="true"
-            app:cardUseCompatPadding="true"
-            android:foreground="?selectableItemBackground"
-            android:layout_marginTop="10dp"
-            android:onClick="openWhatsapp"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="4dp"
-            app:cardMaxElevation="6dp"
-            android:background="@color/colorPrimaryWhatsApp"
+        <LinearLayout
+            android:id="@+id/top"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:orientation="horizontal"
+            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="220dp">
+            android:layout_height="wrap_content">
 
-            <FrameLayout
-                android:background="#26D367"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/large_logo"/>
 
-                <ImageView
-                    android:src="@mipmap/whatsapp"
-                    android:scaleType="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:background="#50000000"
-                    android:layout_gravity="bottom"
-                    android:padding="20dp"
-                    android:textColor="#FFF"
-                    android:textSize="18sp"
-                    android:text="WhatsApp Status"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </FrameLayout>
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:clickable="true"
-            android:focusable="true"
-            app:cardUseCompatPadding="true"
-            android:foreground="?selectableItemBackground"
-            android:layout_marginTop="10dp"
-            android:onClick="openInstagram"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="4dp"
-            app:cardMaxElevation="6dp"
-            android:background="@color/colorAccent"
-            android:layout_width="match_parent"
-            android:layout_height="220dp">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:src="@mipmap/instagram"
-                    android:scaleType="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:textColorPrimary"
+                    android:text="@string/app_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
                 <TextView
-                    android:background="#50000000"
-                    android:layout_gravity="bottom"
-                    android:padding="20dp"
-                    android:textColor="#FFF"
-                    android:textSize="18sp"
-                    android:text="Instagram Posts"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:id="@+id/version"
+                    android:textColor="?colorControlNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-            </FrameLayout>
+            </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </LinearLayout>
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/card2"
-            android:clickable="true"
-            android:focusable="true"
-            android:visibility="gone"
-            app:cardUseCompatPadding="true"
-            android:foreground="?selectableItemBackground"
-            android:layout_marginTop="10dp"
-            android:onClick="openYoutube"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="4dp"
-            app:cardMaxElevation="6dp"
-            android:background="@color/colorAccent"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:overScrollMode="never"
+            tools:listitem="@layout/item_card"
             android:layout_width="match_parent"
-            android:layout_height="220dp">
+            android:layout_height="wrap_content"/>
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <TextView
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:id="@+id/copyright"
+            android:text="Copyright @ 2020"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-                <ImageView
-                    android:src="@mipmap/youtube"
-                    android:scaleType="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/developer"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="@string/developed_with_by_amsavarthan_lv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/copyright" />
 
-                <TextView
-                    android:background="#50000000"
-                    android:layout_gravity="bottom"
-                    android:padding="20dp"
-                    android:textColor="#FFF"
-                    android:textSize="18sp"
-                    android:text="Youtube Videos"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </FrameLayout>
-
-        </android.support.v7.widget.CardView>
+        <Button
+            android:id="@+id/download"
+            android:layout_gravity="center"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:text="Open Source Project"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            android:onClick="openGithub"
+            android:textColor="?android:textColorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
-
 </ScrollView>

@@ -1,42 +1,17 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimaryDark">#FFF</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppThemeWhatsApp" parent="AppTheme.Base" />
-    <style name="AppThemeYoutube" parent="AppTheme.Base2" />
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
-
-    <style name="AppTheme.Base2" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-
-    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimaryWhatsApp</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkWhatsApp</item>
-        <item name="colorAccent">@color/colorAccentWhatsApp</item>
-    </style>
-
-    <style name="saveImageView">
-        <item name="android:padding">3dp</item>
-        <item name="android:background">@drawable/image_border</item>
-        <item name="android:scaleType">fitCenter</item>
-    </style>
-
-    <style name="DownloaderAppTheme" parent="Theme.AppCompat.Light.Dialog">
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowMinWidthMajor">55%</item>
-        <item name="android:windowMinWidthMinor">85%</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#F44336</color>
+    <color name="bottomSheetBg">#ffffff</color>
+    <color name="toolbarColor">#212121</color>
+    <color name="tranluentTextColor">#90FFFFFF</color>
+</resources>

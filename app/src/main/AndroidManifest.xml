@@ -8,9 +8,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+
 
     <application
-        android:name=".TheApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -18,37 +19,34 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning">
+        android:requestLegacyExternalStorage="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:theme">
+        <service android:name="com.ixuea.android.downloader.DownloadService">
+            <intent-filter>
+                <action android:name="com.ixuea.android.downloader.DOWNLOAD_SERVICE" />
+            </intent-filter>
+        </service>
+        <activity android:name=".activities.SettingsActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".activities.HDPictureActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".activities.RecentsActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".activities.RepostActivity"
+            android:exported="false"/>
+
+        <activity android:name=".whatsapp.home.HomeActivity"/>
+        <activity android:name=".whatsapp.image.ImageViewActivity"/>
+        <activity android:name=".whatsapp.video.VideoActivity"/>
 
         <activity
-            android:name=".Youtube.HelpActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light" />
-
-        <activity android:name=".Youtube.DownloadActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/DownloaderAppTheme"/>
-
-        <activity
-            android:name=".Youtube.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeYoutube" />
-
-        <activity
-            android:name=".Instagram.DP_View"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light" />
-
-        <activity
-            android:name=".Instagram.HelpActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light" />
-
-        <activity
-            android:name=".MainActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light">
+            android:name=".activities.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -56,39 +54,37 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".IntroActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".activities.VideoDownloaderDialogActivity"
+            android:label="Download Video"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog.Alert"/>
+        <activity android:name=".activities.VideoDownloadActivity"/>
+        <activity android:name=".activities.YHelpActivity"
+            />
 
-        <activity
-            android:name=".IntroAgainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <provider
+            android:exported="false"
+            android:authorities="${applicationId}.provider"
+            android:name="androidx.core.content.FileProvider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
 
-        <activity
-            android:name=".Instagram.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light" />
-
-        <activity
-            android:name=".WhatsApp.ui.main.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeWhatsApp"/>
-
-        <activity
-            android:name=".WhatsApp.ui.imageslider.ImageSliderActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeWhatsApp" />
-
-        <activity
-            android:name=".About"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <receiver android:name=".youtube.DownloadCompletedReceiver"
+            android:exported="true"
+            android:process=".dlFinished">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
 
     </application>
 
