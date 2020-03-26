@@ -15,13 +15,13 @@
 
 * WhatsApp Status Saver
 * Instagram Posts Downloader
-* Youtube Video Downloader
+* Instagram HD Dp Viewer
 
 ## Youtube Videos
 
-Downloading videos from YouTube is disable by default. To enable it follow the procedure below:
-1. Open the app
-2. Click on the logo for 11 times
+Youtube videos cannot be downloaded due to their terms and conditions
+
+https://www.youtube.com/t/terms
 
 ## Developer
 
