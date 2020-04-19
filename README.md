@@ -7,21 +7,49 @@
 [![Hify](https://forthebadge.com/images/badges/built-for-android.svg)](https://lvamsavarthan.github.io/lvstore/hify.html)
 <br>
 
-<p align="left">
-<a href="https://play.google.com/store/apps/details?id=com.amsavarthan.apps.media_toolbox"><img src="https://cdn.rawgit.com/steverichey/google-play-badge-svg/master/img/en_get.svg" width="30%"></a>
-</p>
-
 ## Available Features
 
 * WhatsApp Status Saver
 * Instagram Posts Downloader
 * Instagram HD Dp Viewer
+* Youtube Videos
 
-## Youtube Videos
+## Screenshots
 
-Youtube videos cannot be downloaded due to their terms and conditions
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <img
+          src="https://github.com/lvamsavarthan/Media-Toolbox/blob/master/screenshots/s1.png"
+        />
+      </td>
+      <td>
+        <img
+          src="https://github.com/lvamsavarthan/Media-Toolbox/blob/master/screenshots/s2.png"
+        />
+      </td>
+       <td>
+        <img
+          src="https://github.com/lvamsavarthan/Media-Toolbox/blob/master/screenshots/s3.png"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img
+          src="https://github.com/lvamsavarthan/Media-Toolbox/blob/master/screenshots/s4.png"
+        />
+      </td>
+      <td>
+        <img
+          src="https://github.com/lvamsavarthan/Media-Toolbox/blob/master/screenshots/s5.png"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-https://www.youtube.com/t/terms
 
 ## Developer
 
