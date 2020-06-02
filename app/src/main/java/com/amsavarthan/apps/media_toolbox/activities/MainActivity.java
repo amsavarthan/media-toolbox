@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity{
 
                     }else{
 
-                        Toast.makeText(this, "You can't download Youtube videos now, You may have to check our github repo for details from about screen", Toast.LENGTH_LONG).show();
+                        Toast.makeText(this, "You can't download Youtube videos , You may have to check our github repo for details", Toast.LENGTH_LONG).show();
 
                     }
 
@@ -137,17 +137,6 @@ public class MainActivity extends AppCompatActivity{
                     public void onPermissionsChecked(MultiplePermissionsReport report) {
 
                         if(report.areAllPermissionsGranted()){
-                            /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                                getSharedPreferences("directory",MODE_PRIVATE).edit().putString("path",getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()).apply();
-                            }else{
-                                String directory=getSharedPreferences("directory",MODE_PRIVATE).getString("path",Environment.getExternalStorageDirectory()+"/Media Toolbox/");
-                                File storageDir=new File(directory);
-                                boolean success=true;
-                                if(!storageDir.exists()){
-                                    success=storageDir.mkdirs();
-                                }
-
-                            }*/
                             String directory=getSharedPreferences("directory",MODE_PRIVATE).getString("path",Environment.getExternalStorageDirectory()+"/Media Toolbox/");
                             File storageDir=new File(directory);
                             boolean success=true;
@@ -192,7 +181,7 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        version.setText(String.format("v%s", BuildConfig.VERSION_NAME));
+        version.setText(String.format("%s", BuildConfig.VERSION_NAME));
 
         addCards();
         GridLayoutManager gridLayoutManager=new GridLayoutManager(this,2);
@@ -246,7 +235,6 @@ public class MainActivity extends AppCompatActivity{
 
         if(num==0){
             sharedPreferences.edit().putInt("clicks",--num).apply();
-            Toast.makeText(this, "Something's unlocked", Toast.LENGTH_SHORT).show();
             addCards();
             return;
         }

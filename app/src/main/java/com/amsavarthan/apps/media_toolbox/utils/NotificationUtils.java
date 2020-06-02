@@ -97,7 +97,7 @@ public class NotificationUtils {
 
         NotificationManager notificationManager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        NotificationChannel channel=new NotificationChannel("download_channel","Download Status Notifications",NotificationManager.IMPORTANCE_MIN);
+        NotificationChannel channel=new NotificationChannel("download_channel","Download Status Notifications",NotificationManager.IMPORTANCE_LOW);
         channel.enableLights(true);
         channel.setShowBadge(true);
         channel.enableVibration(true);

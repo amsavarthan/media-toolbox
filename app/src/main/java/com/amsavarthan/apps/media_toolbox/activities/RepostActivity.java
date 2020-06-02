@@ -189,11 +189,8 @@ public class RepostActivity extends AppCompatActivity {
                 File storageDir;
 
                 directory=getSharedPreferences("directory",MODE_PRIVATE).getString("path",Environment.getExternalStorageDirectory()+"/Media Toolbox/");
-                if (!directory.endsWith("/Media Toolbox")) {
-                    storageDir = new File(directory + "/Media Toolbox/Instagram/Repost/");
-                } else {
-                    storageDir = new File(directory + "/Instagram/Repost/");
-                }
+                storageDir = new File(directory + "/Instagram/Repost/");
+
                 if (!storageDir.exists()) {
                     success = storageDir.mkdirs();
                 }
@@ -266,11 +263,8 @@ public class RepostActivity extends AppCompatActivity {
                 File storageDir;
 
                 directory=getSharedPreferences("directory",MODE_PRIVATE).getString("path",Environment.getExternalStorageDirectory()+"/Media Toolbox/");
-                if (!directory.endsWith("/Media Toolbox")) {
-                    storageDir = new File(directory + "/Media Toolbox/Instagram/Repost/");
-                } else {
-                    storageDir = new File(directory + "/Instagram/Repost/");
-                }
+                storageDir = new File(directory + "/Instagram/Repost/");
+
                 if (!storageDir.exists()) {
                     success = storageDir.mkdirs();
                 }

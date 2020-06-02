@@ -78,7 +78,7 @@
                 android:resource="@xml/provider_paths"/>
         </provider>
 
-        <receiver android:name=".youtube.DownloadCompletedReceiver"
+        <receiver android:name=".receiverUtbe.DownloadCompletedReceiver"
             android:exported="true"
             android:process=".dlFinished">
             <intent-filter>

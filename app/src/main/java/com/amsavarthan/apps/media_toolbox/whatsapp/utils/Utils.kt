@@ -91,7 +91,6 @@ class Utils {
                 val uri=FileProvider.getUriForFile(context,context.packageName+".provider", f)
 
                 intentShareFile.putExtra(Intent.EXTRA_STREAM,uri)
-                intentShareFile.putExtra(Intent.EXTRA_TEXT, "WhatsApp Status Downloaded Via https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID} ")
                 intentShareFile.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
                 intentShareFile.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 context.startActivity(Intent.createChooser(intentShareFile, f.name))

@@ -4,11 +4,11 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.amsavarthan.apps.media_toolbox"
+        applicationId "com.amsavarthan.appv2.media_toolbox"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 7
-        versionName "2.1.0release"
+        versionCode 1
+        versionName "release 2.2.0"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
     }
@@ -25,21 +25,21 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.google.android.material:material:1.2.0-alpha05'
+    implementation 'com.google.android.material:material:1.2.0-beta01'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'android.arch.persistence.room:runtime:1.1.1'
     annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.13'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
     implementation 'android.arch.persistence.room:rxjava2:1.1.1'
-    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:2.1.2'
-    implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'org.ocpsoft.prettytime:prettytime:4.0.5.Final'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
     implementation 'com.github.hedzr:android-file-chooser:v1.2.0-final'
     implementation 'com.github.hedzr:android-file-chooser:devel-SNAPSHOT'
-    implementation 'com.karumi:dexter:6.0.2'
+    implementation 'com.karumi:dexter:6.1.2'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.ixuea:AndroidDownloader:2.0.6'
     implementation "androidx.core:core-ktx:+"

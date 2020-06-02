@@ -121,11 +121,8 @@ public class HDPictureActivity extends AppCompatActivity {
                     File storageDir;
 
                     directory=getSharedPreferences("directory",MODE_PRIVATE).getString("path",Environment.getExternalStorageDirectory()+"/Media Toolbox/");
-                    if (!directory.endsWith("/Media Toolbox")) {
-                        storageDir = new File(directory + "/Media Toolbox/Instagram/Profile Pictures/");
-                    } else {
-                        storageDir = new File(directory + "/Instagram/Profile Pictures/");
-                    }
+                    storageDir = new File(directory + "/Instagram/Profile Pictures/");
+
                     if (!storageDir.exists()) {
                         success = storageDir.mkdirs();
                     }
