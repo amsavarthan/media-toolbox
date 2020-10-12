@@ -7,6 +7,8 @@
 [![Hify](https://forthebadge.com/images/badges/built-for-android.svg)](https://lvamsavarthan.github.io/lvstore/hify.html)
 <br>
 
+### Get the app from <a href="https://github.com/lvamsavarthan/Media-Toolbox/releases/tag/v2.0">here</a>
+
 ## Available Features
 
 * WhatsApp Status Saver
