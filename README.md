@@ -1,13 +1,13 @@
 # Media-Toolbox
 
-<img src="https://github.com/lvamsavarthan/Media-Toolbox/blob/master/app/src/main/ic_launcher-web.png" height="200" width="200">
+<img src="https://github.com/amsavarthan/media-toolbox/blob/master/app/src/main/ic_launcher-web.png" height="200" width="200">
 
-[![Hify](https://forthebadge.com/images/badges/built-by-developers.svg)](https://lvamsavarthan.github.io/lvstore/hify.html)
-[![Hify](https://forthebadge.com/images/badges/built-with-love.svg)](https://lvamsavarthan.github.io/lvstore/hify.html)
-[![Hify](https://forthebadge.com/images/badges/built-for-android.svg)](https://lvamsavarthan.github.io/lvstore/hify.html)
+[![Hify](https://forthebadge.com/images/badges/built-by-developers.svg)](https://amsavarthan.github.io)
+[![Hify](https://forthebadge.com/images/badges/built-with-love.svg)](https://amsavarthan.github.io)
+[![Hify](https://forthebadge.com/images/badges/built-for-android.svg)](https://amsavarthan.github.io)
 <br>
 
-### Get the app from <a href="https://github.com/lvamsavarthan/Media-Toolbox/releases/tag/v2.0">here</a>
+### Get the app from <a href="https://github.com/amsavarthan/media-toolbox/releases/tag/v2.0">here</a>
 
 ## Available Features
 
@@ -23,29 +23,29 @@
     <tr>
       <td>
         <img
-          src="https://github.com/lvamsavarthan/Media-Toolbox/blob/master/screenshots/s1.png"
+          src="https://github.com/amsavarthan/media-toolbox/blob/master/screenshots/s1.png"
         />
       </td>
       <td>
         <img
-          src="https://github.com/lvamsavarthan/Media-Toolbox/blob/master/screenshots/s2.png"
+          src="https://github.com/amsavarthan/media-toolbox/blob/master/screenshots/s2.png"
         />
       </td>
        <td>
         <img
-          src="https://github.com/lvamsavarthan/Media-Toolbox/blob/master/screenshots/s3.png"
+          src="https://github.com/amsavarthan/media-toolbox/blob/master/screenshots/s3.png"
         />
       </td>
     </tr>
     <tr>
       <td>
         <img
-          src="https://github.com/lvamsavarthan/Media-Toolbox/blob/master/screenshots/s4.png"
+          src="https://github.com/amsavarthan/media-toolbox/blob/master/screenshots/s4.png"
         />
       </td>
       <td>
         <img
-          src="https://github.com/lvamsavarthan/Media-Toolbox/blob/master/screenshots/s5.png"
+          src="https://github.com/amsavarthan/media-toolbox/blob/master/screenshots/s5.png"
         />
       </td>
     </tr>
